@@ -8,10 +8,13 @@ cp -r * $dest
 chmod +x $dest/_init.sh
 
 # Run
-#$dest/_init.sh
-#mv $dest/* ..
-#
-## Clean
-#rm -rf $dest
-#rm ../init.sh
-#rm ../_init.sh
+cd $dest || exit 1
+chmod +x _init.sh
+./_init.sh
+mv $dest/* ..
+
+# Clean
+cd ../.template || exit 2
+rm -rf $dest
+rm ../init.sh
+rm ../_init.sh

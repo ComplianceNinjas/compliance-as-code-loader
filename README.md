@@ -37,7 +37,7 @@ $ chmod +x ./template/init.sh
 $ ./template/init.sh
 ```
 
-This command will create the necessary configuration files and folder structure for the default product in the current directory.
+This command will create the necessary files and folder structure for the default product in the current directory.
 
 ## Usage
 

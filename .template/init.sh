@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 
+extract_json_value() {
+    local json_file="../config.json"
+    local key="$1"
+    grep -Po "\"$key\":\s*\"\K[^\"]*" $json_file
+}
+
 declare -A patterns
 patterns=(
-    ["##PRODUCT_NAME##"]="parrot"
-    ["##PRODUCT_NAME_FULL##"]="Parrot Linux"
-    ["##BENCHMARK_ID##"]="PARROT"
-    ["##PRODUCT_VERSION##"]="5.3"
-    ["##PRODUCT_NAME_FULL_VERSION##"]="Parrot Linux 5.3"
+    ["##PRODUCT_NAME##"]="$(extract_json_value "PRODUCT_NAME")"
+    ["##PRODUCT_NAME_FULL##"]="$(extract_json_value "PRODUCT_NAME_FULL")"
+    ["##BENCHMARK_ID##"]="$(extract_json_value "BENCHMARK_ID")"
+    ["##PRODUCT_VERSION##"]="$(extract_json_value "PRODUCT_VERSION")"
+    ["##PRODUCT_NAME_FULL_VERSION##"]="$(extract_json_value "PRODUCT_NAME_FULL_VERSION")"
 )
 
 # Replace patterns with their value

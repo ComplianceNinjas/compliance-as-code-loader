@@ -33,7 +33,8 @@ To initialize the current folder and set up a default product, follow these step
 2. Run the following command to initialize the folder with a default product:
 
 ```bash
-$ exit 0
+$ chmod +x ./template/init.sh
+$ ./template/init.sh
 ```
 
 This command will create the necessary configuration files and folder structure for the default product in the current directory.
@@ -47,7 +48,6 @@ Assuming [ComplianceAsCode/content](https://github.com/ComplianceAsCode/content)
 3. If you see any uncommitted changes or files listed as modified, it's essential to either commit or discard these changes. To discard changes, use the following command:
 
 ```bash!
-$ cd ../content
 $ git checkout .
 $ git clean -f -d
 ```

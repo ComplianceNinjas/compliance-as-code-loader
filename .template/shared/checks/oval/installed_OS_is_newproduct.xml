@@ -1,0 +1,25 @@
+<def-group>
+  <definition class="inventory" id="installed_OS_is_##PRODUCT_NAME##" version="3">
+    <metadata>
+      <title>Installed operating system is ##PRODUCT_NAME_FULL##</title>
+      <affected family="unix">
+        <platform>multi_platform_all</platform>
+      </affected>
+      <reference ref_id="cpe:/o:##PRODUCT_NAME##:##PRODUCT_VERSION##" source="CPE" />
+      <description>The operating system installed on the system is ##PRODUCT_NAME_FULL##</description>
+    </metadata>
+    <criteria operator="AND">
+      <extend_definition comment="Installed OS is part of the Unix family" definition_ref="installed_OS_is_part_of_Unix_family" />
+      <criterion comment="##PRODUCT_NAME_FULL## is installed" test_ref="test_os_is_##PRODUCT_NAME##" />
+    </criteria>
+  </definition>
+
+  <ind:textfilecontent54_test check="all" comment="##PRODUCT_NAME_FULL## is installed" id="test_os_is_##PRODUCT_NAME##" version="1">
+    <ind:object object_ref="object_os_is_##PRODUCT_NAME##" />
+  </ind:textfilecontent54_test>
+  <ind:textfilecontent54_object id="object_os_is_##PRODUCT_NAME##" version="1">
+    <ind:filepath>/etc/debian_version</ind:filepath>
+    <ind:pattern operation="pattern match">^##PRODUCT_NAME##$</ind:pattern>
+    <ind:instance datatype="int" operation="equals">1</ind:instance>
+  </ind:textfilecontent54_object>
+</def-group>

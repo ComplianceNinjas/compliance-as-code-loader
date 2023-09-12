@@ -11,7 +11,7 @@ To initialize the project with a new product, follow these steps:
 1. Open the `config.json` file.
 2. Replace the placeholder values with your product-specific information:
 
-```bash!
+```json
 {
     "PLATFORM_NAME": "The platform, such as 'Debian'",
     "PRODUCT_NAME": "The specific product, such as 'Debian 10'",
@@ -35,9 +35,9 @@ To initialize the current folder and set up a default product, follow these step
 2. Run the following command to initialize the folder with a configured product:
 
 ```bash
-$ cd .template
-$ chmod +x init.sh
-$ ./init.sh
+cd .template
+chmod +x init.sh
+./init.sh
 ```
 
 This command will create the necessary files and folder structure for the configured product in the current directory.
@@ -49,12 +49,12 @@ Assuming [ComplianceAsCode/content](https://github.com/ComplianceAsCode/content)
 1. Open a terminal or command prompt. 
 2. If you see any uncommitted changes or files listed as modified in "../content", it's essential to either commit or discard these changes. To discard changes, use the following command:
 
-```bash!
-$ ./clean.sh
+```bash
+./clean.sh
 ```
 
 3. Run the "merge.py" Python script
 
-```bash!
-$ python3 merge.py
+```bash
+python3 merge.py
 ```

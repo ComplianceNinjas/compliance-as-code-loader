@@ -13,10 +13,13 @@ To initialize the project with a new product, follow these steps:
 
 ```bash!
 {
-    "PRODUCT_NAME": "parrot5.3",
-    "PRODUCT_NAME_FULL": "Parrot Linux 5.3",
-    "BENCHMARK_ID": "PARROT",
-    "PRODUCT_VERSION": "5.3"
+    "PLATFORM_NAME": "The platform, such as 'Debian'",
+    "PRODUCT_NAME": "The specific product, such as 'Debian 10'",
+    "PRODUCT_NAME_FULL": "The full product name, for example, 'Debian Linux 10'",
+    "BENCHMARK_ID": "An identifier, like 'DEBIAN-10'",
+    "PRODUCT_VERSION": "The version number, e.g., '10'",
+    "PRODUCT_OS_FILE": "The file to be checked, such as '/etc/debian_version'",
+    "PRODUCT_OS_FILE_CONTENT": "The expected version pattern, which should match the installed version, for example, '^10\\.[0-9]+$'"
 }
 ```
 
@@ -43,15 +46,13 @@ This command will create the necessary files and folder structure for the defaul
 Assuming [ComplianceAsCode/content](https://github.com/ComplianceAsCode/content) is located in "../content," follow these steps to merge your changes into it:
 
 1. Open a terminal or command prompt. 
-2. Navigate to the directory "../content".
-3. If you see any uncommitted changes or files listed as modified, it's essential to either commit or discard these changes. To discard changes, use the following command:
+2. If you see any uncommitted changes or files listed as modified in "../content", it's essential to either commit or discard these changes. To discard changes, use the following command:
 
 ```bash!
-$ git checkout .
-$ git clean -f -d
+$ ./clean.sh
 ```
 
-4. Run the "merge.py" Python script
+3. Run the "merge.py" Python script
 
 ```bash!
 $ python3 merge.py

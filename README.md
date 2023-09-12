@@ -32,14 +32,15 @@ Before you can use this tool, you need to make sure you have Python installed on
 To initialize the current folder and set up a default product, follow these steps:
 
 1. Open your terminal
-2. Run the following command to initialize the folder with a default product:
+2. Run the following command to initialize the folder with a configured product:
 
 ```bash
-$ chmod +x ./template/init.sh
-$ ./template/init.sh
+$ cd .template
+$ chmod +x init.sh
+$ ./init.sh
 ```
 
-This command will create the necessary files and folder structure for the default product in the current directory.
+This command will create the necessary files and folder structure for the configured product in the current directory.
 
 ## Usage
 

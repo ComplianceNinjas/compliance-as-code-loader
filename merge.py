@@ -16,6 +16,7 @@ product_name_upper = product_name.upper()
 product_name_full = config_data["PRODUCT_NAME_FULL"]
 benchmark_id = config_data["BENCHMARK_ID"]
 product_version = config_data["PRODUCT_VERSION"]
+platform_name = config_data["PLATFORM_NAME"]
 
 # Editing CMakeLists.txt
 for line in fileinput.input('../content/CMakeLists.txt', inplace=True):
@@ -35,28 +36,22 @@ endif()''')
 # Editing constants.py
 for line in fileinput.input('../content/ssg/constants.py', inplace=True):
     if re.match(r'\s*MULTI_PLATFORM_LIST\s*=', line):
-        line = re.sub(r'\[', f'["{product_name}", ', line)
+        line = re.sub(r'\[', f'["{platform_name}", ', line)
     print(line, end='')
     if re.match(r'product_directories = \[', line.strip()):
         print(f"    '{product_name}',")
     if re.match(r'FULL_NAME_TO_PRODUCT_MAPPING = {', line.strip()):
         print(f'    "{product_name_full}": "{product_name}",')
     if re.match(r'MULTI_PLATFORM_MAPPING = {', line.strip()):
-        print(f'    "multi_platform_{product_name}": ["{product_name}"],')
+        print(f'    "multi_platform_{platform_name}": ["{product_name}"],')
     if re.match(r'MAKEFILE_ID_TO_PRODUCT_MAP = {', line.strip()):
-        print(f"    '{product_name}': '{product_name_full}',")
+        print(f"    '{platform_name}': '{product_name_full}',")
 
 # Editing build_product
 for line in fileinput.input('../content/build_product', inplace=True):
     print(line, end='')
     if re.match(r'all_cmake_products=\(', line.strip()):
         print(f"  {product_name_upper}")
-
-# Editing sysctl_kernel_ipv6_disable.xml
-for line in fileinput.input('../content/shared/checks/oval/sysctl_kernel_ipv6_disable.xml', inplace=True):
-    if re.match(r'<platform>multi_platform_fedora</platform>', line.strip()):
-        print(f"	<platform>multi_platform_{product_name}</platform>")
-    print(line, end='')
 
 # Merge directory
 current_script_filename = os.path.basename(__file__)

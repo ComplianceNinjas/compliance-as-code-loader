@@ -18,8 +18,8 @@
     <ind:object object_ref="object_os_is_##PRODUCT_NAME##" />
   </ind:textfilecontent54_test>
   <ind:textfilecontent54_object id="object_os_is_##PRODUCT_NAME##" version="1">
-    <ind:filepath>/etc/debian_version</ind:filepath>
-    <ind:pattern operation="pattern match">^##PRODUCT_NAME##$</ind:pattern>
+    <ind:filepath>##PRODUCT_OS_FILE##</ind:filepath>
+    <ind:pattern operation="pattern match">##PRODUCT_OS_FILE_CONTENT##</ind:pattern>
     <ind:instance datatype="int" operation="equals">1</ind:instance>
   </ind:textfilecontent54_object>
 </def-group>

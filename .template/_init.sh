@@ -12,6 +12,8 @@ patterns=(
     ["##PRODUCT_NAME_FULL##"]="$(extract_json_value "PRODUCT_NAME_FULL")"
     ["##BENCHMARK_ID##"]="$(extract_json_value "BENCHMARK_ID")"
     ["##PRODUCT_VERSION##"]="$(extract_json_value "PRODUCT_VERSION")"
+    ["##PRODUCT_OS_FILE##"]="$(extract_json_value "PRODUCT_OS_FILE")"
+    ["##PRODUCT_OS_FILE_CONTENT##"]="$(extract_json_value "PRODUCT_OS_FILE_CONTENT")"
 )
 
 # Replace patterns with their value

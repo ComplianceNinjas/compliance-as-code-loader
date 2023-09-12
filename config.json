@@ -1,6 +1,8 @@
 {
-    "PRODUCT_NAME": "parrot5.3",
+    "PRODUCT_NAME": "parrot5",
     "PRODUCT_NAME_FULL": "Parrot Linux 5.3",
     "BENCHMARK_ID": "PARROT",
-    "PRODUCT_VERSION": "5.3"
+    "PRODUCT_VERSION": "5.3",
+    "PRODUCT_OS_FILE": "/etc/debian_version",
+    "PRODUCT_OS_FILE_CONTENT": "^parrot$"
 }

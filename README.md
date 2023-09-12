@@ -13,11 +13,10 @@ To initialize the project with a new product, follow these steps:
 
 ```bash!
 {
-    "PRODUCT_NAME": "parrot",
-    "PRODUCT_NAME_FULL": "Parrot Linux",
+    "PRODUCT_NAME": "parrot5.3",
+    "PRODUCT_NAME_FULL": "Parrot Linux 5.3",
     "BENCHMARK_ID": "PARROT",
-    "PRODUCT_VERSION": "5.3",
-    "PRODUCT_NAME_FULL_VERSION": "Parrot Linux 5.3"
+    "PRODUCT_VERSION": "5.3"
 }
 ```
 
@@ -55,5 +54,5 @@ $ git clean -f -d
 4. Run the "merge.py" Python script
 
 ```bash!
-$ python merge.py
+$ python3 merge.py
 ```

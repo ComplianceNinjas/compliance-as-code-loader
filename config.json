@@ -1,7 +1,6 @@
 {
-    "PRODUCT_NAME": "parrot",
-    "PRODUCT_NAME_FULL": "Parrot Linux",
+    "PRODUCT_NAME": "parrot5.3",
+    "PRODUCT_NAME_FULL": "Parrot Linux 5.3",
     "BENCHMARK_ID": "PARROT",
-    "PRODUCT_VERSION": "5.3",
-    "PRODUCT_NAME_FULL_VERSION": "Parrot Linux 5.3"
+    "PRODUCT_VERSION": "5.3"
 }

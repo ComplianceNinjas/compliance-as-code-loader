@@ -15,5 +15,5 @@ cpes:
   # one for each version supported by this product
   - ##PRODUCT_NAME####PRODUCT_VERSION##:
       name: "cpe:/o:##PRODUCT_NAME##:##PRODUCT_VERSION##"
-      title: "##PRODUCT_NAME_FULL_VERSION##"
+      title: "##PRODUCT_NAME_FULL##"
       check_id: installed_OS_is_##PRODUCT_NAME##

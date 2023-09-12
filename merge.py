@@ -16,7 +16,6 @@ product_name_upper = product_name.upper()
 product_name_full = config_data["PRODUCT_NAME_FULL"]
 benchmark_id = config_data["BENCHMARK_ID"]
 product_version = config_data["PRODUCT_VERSION"]
-product_name_full_version = config_data["PRODUCT_NAME_FULL_VERSION"]
 
 # Editing CMakeLists.txt
 for line in fileinput.input('../content/CMakeLists.txt', inplace=True):
@@ -75,7 +74,7 @@ def merge_directories(source_dir, destination_dir):
         if filename == '.template':
             continue
 
-        if filename == 'README.md':
+        if filename == 'README.md' or filename == "LICENSE":
             continue
 
         if filename == 'config.json':

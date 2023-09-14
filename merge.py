@@ -16,7 +16,10 @@ product_name_upper = product_name.upper()
 product_name_full = config_data["PRODUCT_NAME_FULL"]
 benchmark_id = config_data["BENCHMARK_ID"]
 product_version = config_data["PRODUCT_VERSION"]
-platform_name = config_data["PLATFORM_NAME"]
+platform_name_pretty = config_data["PLATFORM_NAME"]
+platform_name = platform_name_pretty.lower()
+package_manager = config_data.get("NEW_PACKAGE_MANAGER", "")
+has_new_package_manager = package_manager != ""
 
 # Editing CMakeLists.txt
 for line in fileinput.input('../content/CMakeLists.txt', inplace=True):
@@ -40,12 +43,14 @@ for line in fileinput.input('../content/ssg/constants.py', inplace=True):
     print(line, end='')
     if re.match(r'product_directories = \[', line.strip()):
         print(f"    '{product_name}',")
-    if re.match(r'FULL_NAME_TO_PRODUCT_MAPPING = {', line.strip()):
-        print(f'    "{product_name_full}": "{product_name}",')
     if re.match(r'MULTI_PLATFORM_MAPPING = {', line.strip()):
         print(f'    "multi_platform_{platform_name}": ["{product_name}"],')
+    if re.match(r'FULL_NAME_TO_PRODUCT_MAPPING = {', line.strip()):
+        print(f'    "{product_name_full}": "{product_name}",')
     if re.match(r'MAKEFILE_ID_TO_PRODUCT_MAP = {', line.strip()):
-        print(f"    '{platform_name}': '{product_name_full}',")
+        print(f"    '{platform_name}': '{platform_name_pretty}',")
+    if has_new_package_manager and re.match(r'PKG_MANAGER_TO_SYSTEM = {', line.strip()):
+        print(f"    '{package_manager[0]}': '{package_manager[1]}',")
 
 # Editing build_product
 for line in fileinput.input('../content/build_product', inplace=True):

@@ -19,7 +19,10 @@ To initialize the project with a new product, follow these steps:
     "BENCHMARK_ID": "An identifier, like 'DEBIAN-10'",
     "PRODUCT_VERSION": "The version number, e.g., '10'",
     "PRODUCT_OS_FILE": "The file to be checked, such as '/etc/debian_version'",
-    "PRODUCT_OS_FILE_CONTENT": "The expected version pattern, which should match the installed version, for example, '^10\\.[0-9]+$'"
+    "PRODUCT_OS_FILE_CONTENT": "The expected version pattern, which should match the installed version, for example, '^10\\.[0-9]+$'",
+    // Only add the following line if your package manager is not already supported,
+    // and be sure to update all necessary files accordingly.
+    "NEW_PACKAGE_MANAGER": ["apt_get", "dpkg"]
 }
 ```
 

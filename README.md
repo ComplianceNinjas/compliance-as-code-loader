@@ -26,6 +26,8 @@ To initialize the project with a new product, follow these steps:
 }
 ```
 
+**Warning**: `PRODUCT_NAME` must include `PLATFORM_NAME`.
+
 3. Save the file.
 
 Before you can use this tool, you need to make sure you have Python installed on your system. You can download Python from the official website: [Python Downloads](https://www.python.org/downloads/).

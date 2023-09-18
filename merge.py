@@ -35,6 +35,12 @@ endif()''')
 
     print(line, end='')
 
+# Editing profile_base.py
+for line in fileinput.input('../content/ssg/entities/profile_base.py', inplace=True):
+    print(line, end='')
+    if re.match(r'msg = "Profile {0} ', line.strip()):
+        print(f'            msg += "\\nDid you call \'./utils/after_merge.sh\'?\\nOr is your prodtype incorrect '
+              f'for one of your rules?"')
 
 # Editing constants.py
 for line in fileinput.input('../content/ssg/constants.py', inplace=True):
